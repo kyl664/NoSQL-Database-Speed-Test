@@ -1,0 +1,48 @@
+# redis bash script to find all data for every key:
+#!/bin/bash
+for key in $(redis-cli KEYS "user:*"); do
+  echo "Data for $key:"
+  redis-cli HGETALL $key
+done
+
+#terminal commands for redis:
+
+sudo systemctl enable redis-server
+
+sudo systemctl start redis-server
+
+sudo systemctl stop redis-server
+
+redis-cli
+
+HGETALL user:0 Firstname
+
+keys *
+
+#termnal commands for mongoDB:
+
+sudo systemctl start mongod
+
+sudo systemctl stop mongod
+
+sudo systemctl status mongod
+
+#docker commands:
+
+docker ps -a
+
+docker run -d --name redis-stack-server -p 6379:6379 redis/redis-stack-server
+
+docker stop redis-stack-server
+
+#apache cassandra command:
+
+sudo systemctl start cassandra
+
+sudo systemctl enable cassandra
+
+~/.local/bin/cqlsh
+
+sudo systemctl stop cassandra
+
+sudo systemctl restart cassandra
